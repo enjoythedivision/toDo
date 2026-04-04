@@ -159,5 +159,39 @@ for (let a = 0; a < arr.length; a++) {
   console.log(arr[a]);
 }
 
+//for...in
+for (let a in arr) {
+  console.log(arr[a]);
+} // a is the indices
 
+//for objects
+let animal = { "name": "dog", "color": "white", "age": 5};
+for (let k in animal) {
+  console.log(k); //keys
+  console.log(animal[k]); //values
+}
 
+const galleryImages = [
+  {
+    "src": "./assets/gallery/image1.jpg",
+    "alt": "Image 1"
+  },
+  {
+    "src": "./assets/gallery/image2.jpg",
+    "alt": "Image 2"
+  },
+  {
+    "src": "./assets/gallery/image3.jpg",
+    "alt": "Image 3"
+  }
+]
+
+// for (let img in galleryImages) {
+//   console.log((galleryImages[img].src)); 
+// }
+
+//foreach
+galleryImages.forEach(function(image, index){
+  console.log(index);
+  console.log(image);
+});
