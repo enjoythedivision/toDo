@@ -82,7 +82,6 @@ num1 === num2; // === -> strict equality operator -> checks if the values && the
 
 
 
-
 ////FUNCTIONS
 //no semicolons after functions, only on statements, eg celsiustofahr();
 function updateWeather() {
@@ -102,18 +101,25 @@ function convertToCelsius(fahr) {
 
 document.querySelector(".weather-group").addEventListener("click", function(e){ //pls see more on e
   console.log(e.target.id);
-  if (e.target.id == "celsius") {
+  if (e.target.id == "celsius" && tempUnit !== "C") {
     temperature = convertToCelsius(temperature);
     tempUnit = "C";
     updateWeather();
   }
-  else if (e.target.id == "fahr") {
+  else if (e.target.id == "fahr" && tempUnit !== "F") {
     temperature = convertToFahrenheit(temperature);
     tempUnit = "F";
     updateWeather();
   }
-
 });
+
+//DATE AND TIME
+//new Date().getHours();
+let localTime = new Date();
+document.querySelector("span[data-time=hours]").textContent = localTime.getHours();
+document.querySelector("span[data-time=minutes]").textContent = localTime.getMinutes();
+document.querySelector("span[data-time=seconds]").textContent = localTime.getSeconds();
+
 
 
 
