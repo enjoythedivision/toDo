@@ -173,13 +173,14 @@ for (let k in animal) {
 
 const galleryImages = [
   {
-    "src": "./assets/gallery/image1.jpg",
-    "alt": "Image 1"
-  },
-  {
     "src": "./assets/gallery/image2.jpg",
     "alt": "Image 2"
   },
+  {
+    "src": "./assets/gallery/image1.jpg",
+    "alt": "Image 1"
+  },
+
   {
     "src": "./assets/gallery/image3.jpg",
     "alt": "Image 3"
@@ -191,7 +192,33 @@ const galleryImages = [
 // }
 
 //foreach
+// galleryImages.forEach(function(image, index){ 
+//   console.log(index);
+//   console.log(image);
+// });
+
+let mainImage = document.querySelector("#gallery > img"); //brush up on css selectors
+let thumbnails = document.querySelector("#gallery .thumbnails");
+
+mainImage.src = galleryImages[0].src;
+mainImage.alt = galleryImages[0].alt;
+
+// <img src="" alt="" data-array-index="0" data-selected="true">
+// <img src="" alt="" data-array-index="1" data-selected="false">
+// <img src="" alt="" data-array-index="2" data-selected="false"></img>
+
 galleryImages.forEach(function(image, index){
-  console.log(index);
-  console.log(image);
+  let thumb = document.createElement("img");
+  thumb.src = image.src;
+  thumb.alt = image.alt;
+  thumb.dataset.arrayIndex = index;
+  thumb.dataset.selected = false;
+
+  index === 0 ? thumb.dataset.selected = true : thumb.dataset.selected = false; //ways to rephrase this?
+
+  thumbnails.appendChild(thumb);
+
 });
+
+
+
