@@ -212,13 +212,24 @@ galleryImages.forEach(function(image, index){
   thumb.src = image.src;
   thumb.alt = image.alt;
   thumb.dataset.arrayIndex = index;
-  thumb.dataset.selected = false;
 
-  index === 0 ? thumb.dataset.selected = true : thumb.dataset.selected = false; //ways to rephrase this?
+  // set first image as selected
+  thumb.dataset.selected = index === 0 ? "true" : "false";
+
+  thumb.addEventListener("click", function(){
+
+    // update main image
+    mainImage.src = image.src;
+    mainImage.alt = image.alt;
+
+    // remove selected from all
+    document.querySelectorAll("#gallery .thumbnails img").forEach(function(img){
+      img.dataset.selected = "false";
+    });
+
+    // set clicked one as selected
+    this.dataset.selected = "true";
+  });
 
   thumbnails.appendChild(thumb);
-
 });
-
-
-
