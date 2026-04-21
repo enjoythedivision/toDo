@@ -271,7 +271,7 @@ main .gallery-section .thumbnails img {
   cursor: pointer;
 }
 main .gallery-section .thumbnails img[data-selected="true"] {
-  border: 2px solid #ffffff;
+  border: 1px solid #ffffff;
 }
 main .gallery-section .thumbnails img + img {
   margin-left: 20px;
